@@ -18,14 +18,11 @@ export type pickedPlacesType = {
   };
 };
 
-export type ModalHandles = {
-  open: () => void;
-  close: () => void;
-};
-
-export type childrenType = {
+export interface ModalProps {
   children: React.ReactNode;
-};
+  open: boolean;
+  onClose: () => void;
+}
 
 export interface PlacesProps {
   title: string;
