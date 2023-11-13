@@ -8,24 +8,23 @@ import Places from './components/Places';
 import Modal from './components/Modal';
 import DeleteConfirmation from './components/DeleteConfirmation';
 
-import { pickedPlacesType } from './types';
+import { AvaiablePlaces } from './types';
 
 const storedIds: string[] = JSON.parse(
   localStorage.getItem('selectedPlaces') || '[]'
 ) as string[];
 
-const storedPlaces: pickedPlacesType[] = storedIds.map(id =>
+const storedPlaces: AvaiablePlaces = storedIds.map(id =>
   AVAILABLE_PLACES.find(place => place.id === id)
-) as pickedPlacesType[];
-
+) as AvaiablePlaces
 function App() {
   const [modalIsOpen, SetModalIsOpen] = useState(false);
   const selectedPlace = useRef<string>();
-  const [availablePlaces, setAvailablePlaces] = useState<pickedPlacesType[]>(
+  const [availablePlaces, setAvailablePlaces] = useState<AvaiablePlaces>(
     []
   );
   const [pickedPlaces, setPickedPlaces] =
-    useState<pickedPlacesType[]>(storedPlaces);
+    useState<AvaiablePlaces>(storedPlaces);
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(position => {

@@ -9,14 +9,18 @@ export type AvaiablePlaces = {
   lon?: number;
 }[];
 
-export type pickedPlacesType = {
-  id: string;
-  title: string;
-  image: {
-    src: string;
-    alt: string;
-  };
-};
+export type CalculateDistance = (
+  lat1: number,
+  lng1: number,
+  lat2: number,
+  lng2: number
+) => number;
+
+export type SortPlacesByDistance = (
+  places: AvaiablePlaces,
+  lat: number,
+  lon: number
+) => AvaiablePlaces;
 
 export interface ModalProps {
   children: React.ReactNode;
@@ -26,7 +30,7 @@ export interface ModalProps {
 
 export interface PlacesProps {
   title: string;
-  places: pickedPlacesType[];
+  places: AvaiablePlaces;
   fallbackText?: string;
   onSelectPlace: (id: string) => void;
 }
