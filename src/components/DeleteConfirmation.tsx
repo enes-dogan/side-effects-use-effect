@@ -1,4 +1,7 @@
 import { DeleteConfirmationProps } from '../types';
+import ProggressBar from './ProggressBar';
+
+const TIMER = 3000;
 
 const DeleteConfirmation = ({
   onConfirm,
@@ -16,6 +19,7 @@ const DeleteConfirmation = ({
           Yes
         </button>
       </div>
+      <ProggressBar timer={TIMER} />
     </div>
   );
 };
