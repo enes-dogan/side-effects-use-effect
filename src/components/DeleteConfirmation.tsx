@@ -19,7 +19,7 @@ const DeleteConfirmation = ({
           Yes
         </button>
       </div>
-      <ProggressBar timer={TIMER} />
+      <ProggressBar timer={TIMER} onCancel={onCancel} />
     </div>
   );
 };

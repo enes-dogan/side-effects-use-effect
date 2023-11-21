@@ -1,6 +1,12 @@
 import { useEffect, useState } from 'react';
 
-const ProggressBar = ({ timer }: { timer: number }) => {
+const ProggressBar = ({
+  timer,
+  onCancel,
+}: {
+  timer: number;
+  onCancel: () => void;
+}) => {
   const [remainingTime, setRemainingTime] = useState(timer);
 
   useEffect(() => {
@@ -13,6 +19,8 @@ const ProggressBar = ({ timer }: { timer: number }) => {
       clearInterval(interval);
     };
   }, []);
+
+  if (remainingTime === 0) onCancel();
 
   return <progress value={remainingTime} max={timer} />;
 };
